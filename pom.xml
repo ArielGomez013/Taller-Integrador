@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://apache.org" xmlns:xsi="http://w3.org"
+		 xsi:schemaLocation="http://apache.org https://apache.org">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -15,13 +15,13 @@
 	<description>Sistema Web para la Gestión de un Instituto Educativo</description>
 
 	<properties>
-		<java.version>25</java.version>
-		<maven.compiler.source>25</maven.compiler.source>
-		<maven.compiler.target>25</maven.compiler.target>
+		<java.version>21</java.version>
+		<maven.compiler.source>21</maven.compiler.source>
+		<maven.compiler.target>21</maven.compiler.target>
 	</properties>
 
 	<dependencies>
-		<!-- 1. Web / API REST (Servidor Tomcat embebido y JSON) -->
+		<!-- 1. Web / API REST -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -40,7 +40,7 @@
 			<scope>runtime</scope>
 		</dependency>
 
-		<!-- 4. Validaciones de datos (@NotNull, @NotBlank, @Min, @Size) -->
+		<!-- 4. Validaciones de datos -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-validation</artifactId>
@@ -52,7 +52,7 @@
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
 
-		<!-- 6. Lombok (Getters, Setters, Builders automáticos) -->
+		<!-- 6. Lombok -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
@@ -60,7 +60,7 @@
 			<optional>true</optional>
 		</dependency>
 
-		<!-- 7. DevTools (Recarga automática en desarrollo) -->
+		<!-- 7. DevTools -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
@@ -68,7 +68,7 @@
 			<optional>true</optional>
 		</dependency>
 
-		<!-- 8. Dependencias para Pruebas Unitarias e Integración -->
+		<!-- 8. Dependencias para Pruebas -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -100,8 +100,8 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.13.0</version>
 				<configuration>
-					<source>25</source>
-					<target>25</target>
+					<source>21</source>
+					<target>21</target>
 					<annotationProcessorPaths>
 						<path>
 							<groupId>org.projectlombok</groupId>

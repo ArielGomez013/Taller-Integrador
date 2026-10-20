@@ -3,7 +3,6 @@ package com.example.demo.services;
 import com.example.demo.dto.CursoMateriaDTO;
 import com.example.demo.entities.Curso;
 import com.example.demo.entities.CursoMateria;
-import com.example.demo.entities.Docente;
 import com.example.demo.entities.Materia;
 import com.example.demo.repositories.CursoMateriaRepository;
 import com.example.demo.repositories.CursoRepository;
