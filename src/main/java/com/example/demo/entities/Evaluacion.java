@@ -11,7 +11,12 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @NoArgsConstructor
-@Table(name="Evaluacion")
+@Table(name="Evaluacion", uniqueConstraints = {
+    @UniqueConstraint(
+        name = "uk_evaluacion_cursomateria_fecha_tipo",
+        columnNames = {"idCursoMateria", "fecha", "tipo"}
+    )
+})
 public class Evaluacion {
 
     public enum TipoEvaluacion { PRIMER_PARCIAL, SEGUNDO_PARCIAL, EXAMEN_FINAL, TRABAJO_PRACTICO, RECUPERATORIO }

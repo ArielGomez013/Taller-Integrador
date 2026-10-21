@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CuotaService {
@@ -19,6 +20,18 @@ public class CuotaService {
 
     @Autowired
     private MatriculaRepository matriculaRepository;
+
+    public List<Cuota> listar() {
+        return cuotaRepository.findAll();
+    }
+
+    public Optional<Cuota> buscarPorId(Long id) {
+        return cuotaRepository.findById(id);
+    }
+
+    public List<Cuota> buscarPorMatricula(Long idMatricula) {
+        return cuotaRepository.findByMatriculaIdMatricula(idMatricula);
+    }
 
     public void generarCuotasParaMatricula(Long idMatricula, int cantidad, BigDecimal monto, LocalDate primerVencimiento) {
         Matricula matricula = matriculaRepository.findById(idMatricula)

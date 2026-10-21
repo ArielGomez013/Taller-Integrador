@@ -10,7 +10,12 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @NoArgsConstructor
-@Table(name = "Inscripcion")
+@Table(name = "Inscripcion", uniqueConstraints = {
+    @UniqueConstraint(
+        name = "uk_inscripcion_alumno_curso",
+        columnNames = {"idAlumno", "idCurso"}
+    )
+})
 public class Inscripcion {
 
     public enum EstadoInscripcion { ACTIVA, ANULADA }

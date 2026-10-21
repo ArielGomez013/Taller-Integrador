@@ -6,13 +6,16 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import java.time.LocalDate;
 
-
-
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
-@Table(name="Asistencia")
+@Table(name="Asistencia", uniqueConstraints = {
+    @UniqueConstraint(
+        name = "uk_asistencia_inscripcion_fecha",
+        columnNames = {"idInscrpcion", "fecha"}
+    )
+})
 public class Asistencia {
 
     public enum EstadoAsistencia { PRESENTE, AUSENTE, TARDANZA, JUSTIFICADO }
@@ -31,6 +34,4 @@ public class Asistencia {
     private Asistencia.EstadoAsistencia estado = Asistencia.EstadoAsistencia.PRESENTE;
 
     private String observacion;
-
-
 }

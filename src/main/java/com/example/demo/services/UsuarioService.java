@@ -77,6 +77,21 @@ public class UsuarioService {
         guardar(usuario);
     }
 
+    public Optional<Usuario> autenticar(String username, String password) {
+        Optional<Usuario> usuarioOpt = usuarioRepository.findByUsername(username);
+        if (usuarioOpt.isEmpty()) {
+            return Optional.empty();
+        }
+        Usuario usuario = usuarioOpt.get();
+        if (Boolean.FALSE.equals(usuario.getActivo())) {
+            throw new RuntimeException("El usuario está inactivo");
+        }
+        if (passwordEncoder.matches(password, usuario.getPasswordHash()) || password.equals(usuario.getPasswordHash())) {
+            return Optional.of(usuario);
+        }
+        return Optional.empty();
+    }
+
     public void eliminar(Long id) {
         usuarioRepository.deleteById(id);
     }

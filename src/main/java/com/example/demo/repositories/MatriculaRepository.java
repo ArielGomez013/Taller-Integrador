@@ -3,8 +3,9 @@ package com.example.demo.repositories;
 import com.example.demo.entities.Matricula;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+import java.util.List;
 
 @Repository
 public interface MatriculaRepository extends JpaRepository<Matricula, Long> {
-    // Al extender JpaRepository, ya hereda todos los CRUD básicos de base de datos
+    List<Matricula> findByAlumnoIdAlumno(Long idAlumno);
 }

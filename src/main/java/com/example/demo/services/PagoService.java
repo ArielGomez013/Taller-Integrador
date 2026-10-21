@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PagoService {
@@ -19,6 +21,18 @@ public class PagoService {
 
     @Autowired
     private CuotaRepository cuotaRepository;
+
+    public List<Pago> listar() {
+        return pagoRepository.findAll();
+    }
+
+    public Optional<Pago> buscarPorId(Long id) {
+        return pagoRepository.findById(id);
+    }
+
+    public List<Pago> buscarPorCuota(Long idCuota) {
+        return pagoRepository.findByCuotaIdCuota(idCuota);
+    }
 
     @Transactional
     public Pago registrarPago(Long idCuota, BigDecimal importePago, String medioPago, Usuario usuarioOperador) {

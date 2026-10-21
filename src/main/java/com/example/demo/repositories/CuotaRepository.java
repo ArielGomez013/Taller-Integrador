@@ -7,6 +7,6 @@ import java.util.List;
 
 @Repository
 public interface CuotaRepository extends JpaRepository<Cuota, Long> {
-    // Metodo personalizado para buscar cuotas por su estado (útil para [RN07])
     List<Cuota> findByEstado(String estado);
+    List<Cuota> findByMatriculaIdMatricula(Long idMatricula);
 }

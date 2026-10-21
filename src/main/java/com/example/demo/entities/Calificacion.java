@@ -9,7 +9,12 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-@Table(name="Calificacion")
+@Table(name="Calificacion", uniqueConstraints = {
+    @UniqueConstraint(
+        name = "uk_calificacion_evaluacion_inscripcion",
+        columnNames = {"idEvaluacion", "idInscripcion"}
+    )
+})
 public class Calificacion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,7 +27,6 @@ public class Calificacion {
     @ManyToOne
     @JoinColumn(name= "idInscripcion", nullable = false)
     private Inscripcion inscripcion;
-
 
     private double nota;
 

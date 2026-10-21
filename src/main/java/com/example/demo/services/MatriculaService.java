@@ -7,11 +7,30 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+import java.util.Optional;
+
 @Service
 public class MatriculaService {
 
     @Autowired
     private MatriculaRepository matriculaRepository;
+
+    public List<Matricula> listar() {
+        return matriculaRepository.findAll();
+    }
+
+    public Optional<Matricula> buscarPorId(Long id) {
+        return matriculaRepository.findById(id);
+    }
+
+    public List<Matricula> buscarPorAlumno(Long idAlumno) {
+        return matriculaRepository.findByAlumnoIdAlumno(idAlumno);
+    }
+
+    public Matricula guardar(Matricula matricula) {
+        return matriculaRepository.save(matricula);
+    }
 
     @Transactional
     public Matricula cambiarEstado(Long idMatricula, String nuevoEstado) {
